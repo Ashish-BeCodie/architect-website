@@ -1527,6 +1527,167 @@
                 this.style.transform = '';
             });
         });
+
+        // Project Modal and Carousel functionality
+        const projectData = [
+            {
+                title: "Modern Family Home",
+                subtitle: "Contemporary residential design with sustainable features",
+                description: "This modern family home showcases contemporary architecture with an emphasis on sustainability. The design incorporates large windows for natural light, open floor plans for modern living, and eco-friendly materials throughout.",
+                images: [
+                    "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                title: "Learning Center",
+                subtitle: "Educational facility promoting collaborative learning",
+                description: "An innovative educational facility designed to promote collaborative learning and creativity. The building features flexible spaces, natural lighting, and modern technology integration.",
+                images: [
+                    "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                title: "Urban Office Complex",
+                subtitle: "Mixed-use development in urban setting",
+                description: "A modern urban office complex that combines commercial and retail spaces. The design emphasizes efficiency, sustainability, and integration with the urban landscape.",
+                images: [
+                    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1567427018141-95ea69de386c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                title: "Luxury Villa",
+                subtitle: "High-end residential architecture with modern amenities",
+                description: "An exclusive luxury villa featuring premium materials, cutting-edge technology, and sophisticated design elements that create an unparalleled living experience.",
+                images: [
+                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                title: "Cultural Center",
+                subtitle: "Community space designed for arts and cultural events",
+                description: "A vibrant cultural center that serves as a hub for community activities, arts performances, and cultural exhibitions. The design promotes accessibility and cultural expression.",
+                images: [
+                    "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1429051781835-9f2c0a9df6e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                title: "Green Office Building",
+                subtitle: "Eco-friendly corporate headquarters with LEED certification",
+                description: "A sustainable office building that achieves LEED certification through innovative green technologies, energy-efficient systems, and environmentally responsible design practices.",
+                images: [
+                    "https://images.unsplash.com/photo-1519223400710-6da9e1b777ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                ]
+            }
+        ];
+
+        let currentProject = 0;
+        let currentSlide = 0;
+
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSubtitle = document.getElementById('modalSubtitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const carouselSlides = document.querySelectorAll('.carousel-slide');
+        const carouselIndicators = document.querySelectorAll('.carousel-indicator');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+        const closeBtn = document.querySelector('.close-modal');
+
+        // Open modal when project is clicked
+        document.querySelectorAll('.project-item').forEach(item => {
+            item.addEventListener('click', function() {
+                currentProject = parseInt(this.dataset.project);
+                currentSlide = 0;
+                openModal();
+            });
+        });
+
+        function openModal() {
+            const project = projectData[currentProject];
+            modalTitle.textContent = project.title;
+            modalSubtitle.textContent = project.subtitle;
+            modalDescription.textContent = project.description;
+
+            // Load images
+            carouselSlides.forEach((slide, index) => {
+                slide.querySelector('img').src = project.images[index];
+            });
+
+            updateCarousel();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateCarousel() {
+            carouselSlides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            carouselIndicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % carouselSlides.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length;
+            updateCarousel();
+        }
+
+        // Event listeners
+        closeBtn.addEventListener('click', closeModal);
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Click indicators to jump to slide
+        carouselIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (modal.classList.contains('active')) {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            }
+        });
     </script>
 </body>
 </html>
