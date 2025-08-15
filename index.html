@@ -1210,30 +1210,87 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-item">
+                <div class="project-item" data-project="0">
                     <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern residential home">
                     <div class="project-overlay">
                         <h3>Modern Family Home</h3>
                         <p>Contemporary residential design with sustainable features</p>
                     </div>
                 </div>
-                <div class="project-item">
+                <div class="project-item" data-project="1">
                     <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Educational building">
                     <div class="project-overlay">
                         <h3>Learning Center</h3>
                         <p>Educational facility promoting collaborative learning</p>
                     </div>
                 </div>
-                <div class="project-item">
+                <div class="project-item" data-project="2">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial building">
                     <div class="project-overlay">
                         <h3>Urban Office Complex</h3>
                         <p>Mixed-use development in urban setting</p>
                     </div>
                 </div>
+                <div class="project-item" data-project="3">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury villa">
+                    <div class="project-overlay">
+                        <h3>Luxury Villa</h3>
+                        <p>High-end residential architecture with modern amenities</p>
+                    </div>
+                </div>
+                <div class="project-item" data-project="4">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cultural center">
+                    <div class="project-overlay">
+                        <h3>Cultural Center</h3>
+                        <p>Community space designed for arts and cultural events</p>
+                    </div>
+                </div>
+                <div class="project-item" data-project="5">
+                    <img src="https://images.unsplash.com/photo-1519223400710-6da9e1b777ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable office">
+                    <div class="project-overlay">
+                        <h3>Green Office Building</h3>
+                        <p>Eco-friendly corporate headquarters with LEED certification</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Project Title</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="" alt="Project image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="" alt="Project image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="" alt="Project image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="" alt="Project image">
+                </div>
+                <button class="carousel-nav carousel-prev">&#8249;</button>
+                <button class="carousel-nav carousel-next">&#8250;</button>
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active"></div>
+                    <div class="carousel-indicator"></div>
+                    <div class="carousel-indicator"></div>
+                    <div class="carousel-indicator"></div>
+                </div>
+            </div>
+            <div class="modal-info">
+                <h4 id="modalSubtitle">Project Description</h4>
+                <p id="modalDescription">Detailed project information goes here.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Process Section -->
     <section id="process" class="section process">
