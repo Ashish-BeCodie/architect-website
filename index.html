@@ -148,6 +148,19 @@
         /* About Section */
         .about {
             background: #f8f8f8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 8s infinite;
         }
 
         .about-content {
@@ -155,6 +168,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .about-text {
@@ -162,12 +177,94 @@
             line-height: 1.8;
             font-weight: 300;
             color: #666;
+            position: relative;
+        }
+
+        .about-highlight {
+            position: relative;
+            display: inline-block;
+            color: #333;
+            font-weight: 400;
+        }
+
+        .about-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #333, #666);
+            animation: highlightExpand 2s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        .philosophy-points {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 0.6s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .philosophy-point.animate {
+            transform: translateX(0);
+            opacity: 1;
+            border-left-color: #333;
+        }
+
+        .philosophy-point:nth-child(1) { animation-delay: 0.2s; }
+        .philosophy-point:nth-child(2) { animation-delay: 0.4s; }
+        .philosophy-point:nth-child(3) { animation-delay: 0.6s; }
+
+        .philosophy-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transform: scale(0);
+            animation: iconPop 0.5s ease-out forwards;
+        }
+
+        .philosophy-point:nth-child(1) .philosophy-icon { animation-delay: 0.4s; }
+        .philosophy-point:nth-child(2) .philosophy-icon { animation-delay: 0.6s; }
+        .philosophy-point:nth-child(3) .philosophy-icon { animation-delay: 0.8s; }
+
+        .philosophy-content h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .philosophy-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
         }
 
         .about-image {
             position: relative;
             overflow: hidden;
-            border-radius: 2px;
+            border-radius: 8px;
             transition: transform 0.3s ease;
         }
 
@@ -179,6 +276,100 @@
             width: 100%;
             height: 400px;
             object-fit: cover;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-image:hover::after {
+            opacity: 1;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #333;
+            display: block;
+            margin-bottom: 0.5rem;
+            counter-reset: number;
+        }
+
+        .stat-number.animate {
+            animation: countUp 2s ease-out;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(51, 51, 51, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 40%;
+            left: 60%;
+            animation-delay: 4s;
         }
 
         /* Services Section */
