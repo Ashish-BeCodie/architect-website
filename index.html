@@ -966,7 +966,7 @@
 
         // Add fade-in-up animation to elements when they come into view
         const fadeElements = document.querySelectorAll('.service-item, .project-item, .process-step, .gallery-item');
-        
+
         const fadeObserver = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -978,6 +978,64 @@
         fadeElements.forEach(element => {
             fadeObserver.observe(element);
         });
+
+        // Philosophy points animation
+        const philosophyObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const points = entry.target.querySelectorAll('.philosophy-point');
+                    points.forEach((point, index) => {
+                        setTimeout(() => {
+                            point.classList.add('animate');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const philosophyPoints = document.querySelector('.philosophy-points');
+        if (philosophyPoints) {
+            philosophyObserver.observe(philosophyPoints);
+        }
+
+        // Stats counter animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 60; // 60 frames for smooth animation
+                let current = 0;
+
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        stat.textContent = target;
+                    }
+                };
+
+                stat.classList.add('animate');
+                updateCount();
+            });
+        }
+
+        // Stats animation observer
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    animateStats();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsContainer = document.querySelector('.stats-container');
+        if (statsContainer) {
+            statsObserver.observe(statsContainer);
+        }
     </script>
 </body>
 </html>
