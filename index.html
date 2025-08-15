@@ -1251,6 +1251,50 @@
         if (statsContainer) {
             statsObserver.observe(statsContainer);
         }
+
+        // Services section animations
+        const servicesIntroObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const servicesIntro = document.querySelector('.services-intro');
+        if (servicesIntro) {
+            servicesIntroObserver.observe(servicesIntro);
+        }
+
+        // Services items staggered animation
+        const servicesItemsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const serviceItems = entry.target.querySelectorAll('.service-item');
+                    serviceItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('animate');
+                        }, index * 150);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const servicesGrid = document.querySelector('.services-grid');
+        if (servicesGrid) {
+            servicesItemsObserver.observe(servicesGrid);
+        }
+
+        // Add interactive hover sound effect (visual feedback)
+        document.querySelectorAll('.service-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
     </script>
 </body>
 </html>
