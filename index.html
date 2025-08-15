@@ -2154,6 +2154,184 @@
                 mobileMenuToggle.classList.remove('active');
             }
         });
+
+        // Gallery Modal and Carousel functionality
+        const galleryData = [
+            {
+                title: "Architectural Blueprint",
+                subtitle: "Technical Drawing",
+                description: "Detailed architectural blueprint showcasing structural elements, dimensions, and technical specifications for residential construction.",
+                images: [
+                    "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092795442-8d6b90b6c3a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092795401-2b02a5c72da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092795103-1ae5e5f85ef1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                ]
+            },
+            {
+                title: "Technical Drawing",
+                subtitle: "Engineering Details",
+                description: "Precise technical drawings with measurements, annotations, and engineering details for construction documentation.",
+                images: [
+                    "https://images.unsplash.com/photo-1551836022-8b2858c9c69b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092787765-e3d1b46a5a6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092582542-76de17c19e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092700831-a08d0d5e3e5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092921844-ecd5e3f3a3e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1581092948087-e6a7e1e3e3e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                ]
+            },
+            {
+                title: "3D Architectural Model",
+                subtitle: "Digital Visualization",
+                description: "Three-dimensional architectural model showcasing spatial relationships, materials, and design concepts in digital format.",
+                images: [
+                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1515263487990-61b07816b924?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                ]
+            },
+            {
+                title: "Architectural Sketch",
+                subtitle: "Hand-drawn Concept",
+                description: "Hand-drawn architectural sketches capturing initial design concepts, spatial ideas, and creative exploration.",
+                images: [
+                    "https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1551836022-8b2858c9c69b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1515263487990-61b07816b924?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                ]
+            },
+            {
+                title: "Building Elevation",
+                subtitle: "Facade Design",
+                description: "Building elevation drawings showing facade design, material specifications, and architectural details.",
+                images: [
+                    "https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1551836022-8b2858c9c69b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                ]
+            },
+            {
+                title: "Architectural Rendering",
+                subtitle: "Photorealistic Visualization",
+                description: "High-quality architectural rendering showcasing the final design with realistic materials, lighting, and environmental context.",
+                images: [
+                    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1515263487990-61b07816b924?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                    "https://images.unsplash.com/photo-1551836022-8b2858c9c69b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                ]
+            }
+        ];
+
+        let currentGalleryItem = 0;
+        let currentGallerySlide = 0;
+
+        const galleryModal = document.getElementById('galleryModal');
+        const galleryModalTitle = document.getElementById('galleryModalTitle');
+        const galleryModalSubtitle = document.getElementById('galleryModalSubtitle');
+        const galleryModalDescription = document.getElementById('galleryModalDescription');
+        const galleryCarouselSlides = document.querySelectorAll('.gallery-carousel-slide');
+        const galleryCarouselIndicators = document.querySelectorAll('.gallery-carousel-indicator');
+        const galleryPrevBtn = document.querySelector('.gallery-carousel-prev');
+        const galleryNextBtn = document.querySelector('.gallery-carousel-next');
+        const closeGalleryBtn = document.querySelector('.close-gallery-modal');
+
+        // Open gallery modal when gallery item is clicked
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                currentGalleryItem = parseInt(this.dataset.gallery);
+                currentGallerySlide = 0;
+                openGalleryModal();
+            });
+        });
+
+        function openGalleryModal() {
+            const galleryItem = galleryData[currentGalleryItem];
+            galleryModalTitle.textContent = galleryItem.title;
+            galleryModalSubtitle.textContent = galleryItem.subtitle;
+            galleryModalDescription.textContent = galleryItem.description;
+
+            // Load images
+            galleryCarouselSlides.forEach((slide, index) => {
+                slide.querySelector('img').src = galleryItem.images[index];
+            });
+
+            updateGalleryCarousel();
+            galleryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateGalleryCarousel() {
+            galleryCarouselSlides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentGallerySlide);
+            });
+            galleryCarouselIndicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentGallerySlide);
+            });
+        }
+
+        function nextGallerySlide() {
+            currentGallerySlide = (currentGallerySlide + 1) % galleryCarouselSlides.length;
+            updateGalleryCarousel();
+        }
+
+        function prevGallerySlide() {
+            currentGallerySlide = (currentGallerySlide - 1 + galleryCarouselSlides.length) % galleryCarouselSlides.length;
+            updateGalleryCarousel();
+        }
+
+        // Gallery modal event listeners
+        closeGalleryBtn.addEventListener('click', closeGalleryModal);
+        galleryNextBtn.addEventListener('click', nextGallerySlide);
+        galleryPrevBtn.addEventListener('click', prevGallerySlide);
+
+        // Click indicators to jump to slide
+        galleryCarouselIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentGallerySlide = index;
+                updateGalleryCarousel();
+            });
+        });
+
+        // Close gallery modal when clicking outside
+        galleryModal.addEventListener('click', function(e) {
+            if (e.target === galleryModal) {
+                closeGalleryModal();
+            }
+        });
+
+        // Enhanced keyboard navigation for both modals
+        document.addEventListener('keydown', function(e) {
+            if (modal.classList.contains('active')) {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            }
+            if (galleryModal.classList.contains('active')) {
+                if (e.key === 'Escape') closeGalleryModal();
+                if (e.key === 'ArrowRight') nextGallerySlide();
+                if (e.key === 'ArrowLeft') prevGallerySlide();
+            }
+        });
     </script>
 </body>
 </html>
