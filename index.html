@@ -373,39 +373,203 @@
         }
 
         /* Services Section */
+        #services {
+            background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23333' fill-opacity='0.02'%3E%3Cpath d='M30 30c0-16.569-13.431-30-30-30v60c16.569 0 30-13.431 30-30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.5;
+        }
+
+        .services-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .services-intro.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .services-intro p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .service-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 2px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
+            background: linear-gradient(135deg, white 0%, #fafafa 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(51, 51, 51, 0.05);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #333, #666, #333);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-item.animate {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border-left-color: #333;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(51, 51, 51, 0.1);
         }
 
-        .service-item h3 {
-            font-size: 1.2rem;
-            font-weight: 400;
+        .service-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #333, transparent, #666) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-item:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-item:hover .service-icon::after {
+            opacity: 1;
+        }
+
+        .service-content h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
             margin-bottom: 1rem;
+            color: #333;
+            position: relative;
+        }
+
+        .service-content p {
+            font-weight: 300;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #666;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 1.5rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover .service-features li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .service-features li:nth-child(1) { transition-delay: 0.1s; }
+        .service-features li:nth-child(2) { transition-delay: 0.2s; }
+        .service-features li:nth-child(3) { transition-delay: 0.3s; }
+
+        .service-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .service-item.featured {
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .service-item.featured .service-icon {
+            background: white;
             color: #333;
         }
 
-        .service-item p {
-            font-weight: 300;
-            color: #666;
-            line-height: 1.6;
+        .service-item.featured h3,
+        .service-item.featured p,
+        .service-item.featured .service-features li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-item.featured::before {
+            background: linear-gradient(90deg, #fff, rgba(255,255,255,0.8), #fff);
         }
 
         /* Projects Section */
